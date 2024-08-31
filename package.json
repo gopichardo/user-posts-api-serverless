@@ -1,0 +1,37 @@
+{
+  "name": "user-posts-api-serverless",
+  "version": "1.0.0",
+  "description": "User-Post API",
+  "main": "index.js",
+  "scripts": {
+    "start:local": "env-cmd -f ./config/local.env sls offline --stage local --region us-east-1",
+    "debug:local": "env-cmd -f ./config/local.env sls offline start --stage local --region us-east-1 --httpPort 3001",
+    "invoker": "env-cmd -f ./config/local.env node --inspect node_modules/serverless/bin/serverless invoke local -f get-user-posts --stage local --region us-east-1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "author": "gopichardo",
+  "license": "ISC",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "inversify": "^6.0.2",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.5.1",
+    "env-cmd": "^10.1.0",
+    "gts": "^5.3.1",
+    "serverless": "3.39.0",
+    "serverless-offline": "^13.7.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.3"
+  }
+}

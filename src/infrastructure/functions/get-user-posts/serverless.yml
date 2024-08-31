@@ -1,0 +1,7 @@
+handler: src/infrastructure/functions/get-user-posts/handler.default
+
+description: Get Users Posts
+events:
+  - http:
+      method: get
+      path: /user-posts
