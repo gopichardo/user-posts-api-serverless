@@ -3,9 +3,9 @@ Implement a User-Post Dashboard that fetches user and post data, combines them, 
 
 ## To-Do List (in order of priority)
 1. Set up the HTML structure for the dashboard
-2. Fetch user data from https://jsonplaceholder.typicode.com/users
-3. Fetch post data from https://jsonplaceholder.typicode.com/posts
-4. Combine the data to create a list of users with their post counts
+2. `DONE` Fetch user data from https://jsonplaceholder.typicode.com/users
+3. `DONE` Fetch post data from https://jsonplaceholder.typicode.com/posts
+4. `DONE` Combine the data to create a list of users with their post counts
 5. Create a table to display: user name, email, company name, and post count
 6. Implement a search feature to filter users by name or email
 7. Add a button to sort users by post count (descending/ascending)
