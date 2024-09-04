@@ -13,7 +13,8 @@
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "posttest": "npm run lint",
+    "deploy:local": "env-cmd -f ./config/local.env serverless deploy --stage local --region us-east-1"
   },
   "author": "gopichardo",
   "license": "ISC",
@@ -29,6 +30,7 @@
     "env-cmd": "^10.1.0",
     "gts": "^5.3.1",
     "serverless": "3.39.0",
+    "serverless-localstack": "^1.2.1",
     "serverless-offline": "^13.7.0",
     "serverless-plugin-typescript": "^2.1.5",
     "ts-node": "^10.9.2",

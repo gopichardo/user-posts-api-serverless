@@ -4,15 +4,27 @@ frameworkVersion: '3'
 plugins:
   - serverless-offline
   - serverless-plugin-typescript
+  - serverless-localstack
 
 provider:
   name: aws
-  runtime: nodejs16.x
+  runtime: nodejs18.x
   region: ${opt:region, self:custom.region}
   stage: ${opt:stage, self:custom.defaultStage}
   environment:
     POSTS_API_URL: ${env:POSTS_API_URL}
     USERS_API_URL: ${env:USERS_API_URL}
+
+custom:
+  defaultStage: local
+  stage: ${opt:stage, self:provider.stage}
+  profile: localstack
+  localstack:
+        host: http://localhost:4566
+        debug: True
+        stages:
+            - local
+        compose_file: docker-compose.yaml
 
 functions:
   get-user-posts: ${file(src/infrastructure/functions/get-user-posts/serverless.yml)}
